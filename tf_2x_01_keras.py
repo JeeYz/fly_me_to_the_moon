@@ -1,4 +1,5 @@
 import tensorflow as tf
+from tensorflow import keras
 import sys
 import numpy as np
 
@@ -6,6 +7,7 @@ np.random.seed(1)
 
 print('Python version : ', sys.version)
 print('TensorFlow version : ', tf.__version__)
+print('Keras version: ', keras.__version__)
 
 mnist = tf.keras.datasets.mnist
 (x_train, y_train), (x_test, y_test) = mnist.load_data()
