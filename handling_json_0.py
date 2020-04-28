@@ -2,7 +2,9 @@ import json
 
 file0 = 'C:/Users/jkdsp/OneDrive/Desktop/논문/SRL/001.언어분석 통합 말뭉치/말뭉치/E2016.788.01_A_01.json'
 
-with open(file0, 'r', encoding='utf-8') as j1:
+file1 = '/home/jy/NLP/SRL/E2016.788.04_Q_01.json'
+
+with open(file1, 'r', encoding='utf-8') as j1:
     json_data = json.load(j1)
     sent = json_data['sentence']
 
