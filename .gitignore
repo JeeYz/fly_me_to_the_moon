@@ -25,6 +25,7 @@ python3.12/
 venv/
 ENV/
 env/
+langgraph/
 .env
 
 # IDE

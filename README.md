@@ -1,49 +1,33 @@
-# AI 챗봇 애플리케이션
+# LangChain & LangGraph 연습 앱
 
-Streamlit과 LangChain을 사용한 AI 챗봇 애플리케이션입니다.
+이 프로젝트는 LangChain과 LangGraph를 연습하기 위한 Streamlit 기반 애플리케이션입니다.
 
 ## 설치 방법
 
-1. Python 3.12 가상환경 생성 및 활성화:
-```bash
-python3.12 -m venv python3.12
-source python3.12/bin/activate
-```
-
-2. 필요한 패키지 설치:
+1. 필요한 패키지 설치:
 ```bash
 pip install -r requirements.txt
 ```
 
-3. `.env` 파일 설정:
-- `.env` 파일을 열고 `OPENAI_API_KEY`에 실제 OpenAI API 키를 입력하세요.
+2. 환경 변수 설정:
+`.env` 파일을 생성하고 다음 내용을 추가하세요:
+```
+OPENAI_API_KEY=your_openai_api_key_here
+```
 
 ## 실행 방법
 
+다음 명령어로 Streamlit 앱을 실행합니다:
 ```bash
 streamlit run app.py
 ```
 
-## 프로젝트 구조
+## 기능
 
-```
-.
-├── src/
-│   ├── config/
-│   │   └── config.py
-│   ├── models/
-│   │   └── chatbot.py
-│   └── services/
-│       └── chat_service.py
-├── .env
-├── app.py
-├── requirements.txt
-└── README.md
-```
+- **LangChain 기본**: LangChain의 기본 기능을 연습할 수 있습니다.
+- **LangGraph 기본**: LangGraph를 사용한 워크플로우 구축을 연습할 수 있습니다.
 
-## 주요 기능
+## 참고 자료
 
-- OpenAI GPT 모델을 사용한 대화형 챗봇
-- 대화 히스토리 유지
-- 사용자 친화적인 인터페이스
-- 오류 처리 및 예외 상황 관리
+- [LangChain 공식 문서](https://python.langchain.com/docs/get_started/introduction)
+- [LangGraph 공식 문서](https://langchain-ai.github.io/langgraph/)
