@@ -92,3 +92,9 @@ uploads/
 Thumbs.db
 .DS_Store
 .directory
+
+# Langgraph
+
+
+# data folder
+.text_data/

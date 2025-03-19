@@ -1,7 +1,8 @@
 import os
 import streamlit as st
 from dotenv import load_dotenv
-from langchain_openai import ChatOpenAI
+
+from langchain_ollama import ChatOllama
 from langchain.schema import HumanMessage, AIMessage
 
 # 환경 변수 로드
@@ -19,7 +20,7 @@ if "messages" not in st.session_state:
     st.session_state.messages = []
 
 if "llm_model" not in st.session_state:
-    st.session_state.llm_model = "gpt-3.5-turbo"
+    st.session_state.llm_model = "gemma3:4b"
 
 # 사이드바 설정
 with st.sidebar:
@@ -29,14 +30,31 @@ with st.sidebar:
     st.subheader("모델 설정")
     model_option = st.selectbox(
         "사용할 LLM 모델을 선택하세요:",
-        options=["llama3.2:3b", "llama3.1", "gemma3:4b""olmo2:13b", "command-r7b"],
+        options=[
+            "gemma3:4b",
+            "llama3.2:3b", 
+            "llama3.1", 
+        ],
         index=0
     )
     
     # 모델 파라미터 설정
     st.subheader("모델 파라미터")
-    temperature = st.slider("Temperature", min_value=0.0, max_value=2.0, value=0.7, step=0.1)
-    max_tokens = st.slider("최대 토큰 수", min_value=100, max_value=4000, value=1000, step=100)
+    temperature = st.slider(
+        "Temperature", 
+        min_value=0.0, 
+        max_value=2.0, 
+        value=0.7, 
+        step=0.1
+    )
+
+    max_tokens = st.slider(
+        "최대 토큰 수", 
+        min_value=100, 
+        max_value=4000, 
+        value=1000, 
+        step=100
+    )
     
     # 모델 적용 버튼
     if st.button("설정 적용"):
@@ -78,7 +96,7 @@ if prompt := st.chat_input("무엇이든 물어보세요!"):
         
         try:
             # LLM 모델 초기화
-            llm = ChatOpenAI(
+            llm = ChatOllama(
                 model=st.session_state.llm_model,
                 temperature=temperature,
                 max_tokens=max_tokens
