@@ -40,3 +40,6 @@ graph = graph_builder.compile()
 if __name__ == "__main__":
     graph.invoke({"messages": [{"role": "user", "content": "안녕?"}]})
     print(graph.invoke({"messages": [{"role": "user", "content": "안녕?"}]})["messages"][-1].content)
+
+
+
