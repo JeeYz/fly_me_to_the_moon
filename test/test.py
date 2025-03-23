@@ -137,3 +137,5 @@ embedding_model = OllamaEmbeddings(model="snowflake-arctic-embed2")
 # 임베딩 차원 크기를 계산
 dimension_size = len(embedding_model.embed_query("hello world"))
 print(dimension_size)
+
+
