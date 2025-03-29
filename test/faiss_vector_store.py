@@ -224,9 +224,9 @@ class FaissVectorStore:
     def _test(self):
         # 캠시 파일 삭제
         import shutil
-        if os.path.exists("./.cache/faiss_vectorstore"):
-            print("캠시된 벡터 저장소 삭제 중...")
-            shutil.rmtree("./.cache/faiss_vectorstore")
+        # if os.path.exists("./.cache/faiss_vectorstore"):
+        #     print("캠시된 벡터 저장소 삭제 중...")
+        #     shutil.rmtree("./.cache/faiss_vectorstore")
         
         # FAISS 벡터 저장소 초기화 - 적절한 청크 크기 사용
         vector_store = FaissVectorStore(chunk_size=1500, chunk_overlap=150)
@@ -236,7 +236,9 @@ class FaissVectorStore:
 
         # 유사도 검색 수행
         # results = retriever.invoke("근로 시간")
-        results = vector_store.similarity_search("근로 시간", k=3)
+        # results = vector_store.similarity_search("근로 시간", k=3)
+
+        results = vector_store.vectorstore.similarity_search(query="법률로 정해 놓은 근로시간은?", k=5)
 
         # 결과 출력
         # Rich 콘솔 생성
@@ -282,3 +284,4 @@ class FaissVectorStore:
 if __name__ == "__main__":
     vector_store = FaissVectorStore()
     vector_store._test()
+
