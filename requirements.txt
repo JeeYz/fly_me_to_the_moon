@@ -1,6 +1,6 @@
 gradio==5.20.1
 langchain==0.3.20
-langchain-openai==0.3.8
+langchain-openai==1.1.14
 langgraph==0.3.5
 python-dotenv==1.0.1
 streamlit==1.32.0
